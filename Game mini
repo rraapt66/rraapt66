@@ -1,0 +1,124 @@
+:menu
+:: make sure to get admin
+:-------------------------------------
+:: Check for permissions
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+:: If error flag set, we do not have admin.
+:: If no admin, reqeust admin via VBS script
+if '%errorlevel%' NEQ '0' (
+    echo Requesting administrative privileges...
+    goto UACPrompt
+) else ( goto gotAdmin )
+:UACPrompt
+    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+    echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
+    "%temp%\getadmin.vbs"
+    exit /B
+:gotAdmin
+:: delete script after getting admin
+    if exist "%temp%\getadmin.vbs" ( del "%temp%\getadmin.vbs" )
+    pushd "%CD%"
+    CD /D "%~dp0"
+:--------------------------------------
+Mode 109 19
+title cmd VV Bysiwat
+@echo off
+cls
+color a
+chcp 65001
+echo.
+echo.                               %%b←[31mKING PARK VERSION 2 ANIDE 64 YOU
+echo.
+echo.       %%b←[37m██   ██ ██ ███    ██  ██████  ██████   █████  ██████  ██   ██ ██    ██ ███████ █████  ██████
+echo.       %%b←[37m██  ██  ██ ████   ██ ██       ██   ██ ██   ██ ██   ██ ██  ██  ██    ██ ██      █   ██      ██
+echo.       %%b←[37m█████   ██ ██ ██  ██ ██   ███ ██████  ███████ ██████  █████   ██    ██ █████   █████   █████
+echo.       %%b←[37m██  ██  ██ ██  ██ ██ ██    ██ ██      ██   ██ ██   ██ ██  ██   ██  ██  ██      █   ██ ██
+echo.       %%b←[37m██   ██ ██ ██   ████  ██████  ██      ██   ██ ██   ██ ██   ██   ████   ███████ █   ██ ███████
+echo.
+echo.      %%b[97m╔═══════════════════════════════════════════════════════════════════════════════════╗
+echo.                       %%b[37m no more 
+echo.                           %%b[37m[%%b[33m1%%b[37m]%%b[33mPARK CONFIG VERSION 2.0
+echo.                           %%b[37m[%%b[33m2%%b[37m]%%b[33mNETWORK TRANING WORK
+echo.                           %%b[37m[%%b[33m3%%b[37m]%%b[33mX64 PARK KILL MAX
+echo.                           %%b[37m[%%b[33m4%%b[37m]%%b[33mTWEAKS WEAPON ALL USE
+echo.                           %%b[37m[%%b[33m5%%b[37m]%%b[33mPOWERPLAN EDIT
+echo.                   %%b[31mDiscord %%b[37m: %%b[37m    %%b[31mDeveloper %%b[37m: %%b[37mparkdereck
+echo.       %%b[97m╚══════════════════════════════════════════════════════════════════════════════════╝
+echo.
+echo 1 clean file
+echo 2 remote
+SET /p choix="%%b[31m[%%b[33mWPARK%%b[31m]%%b[33m PRESS NUMBER USE  >  "
+if %choix%== 1 Goto :clean
+if %choix%== 2 Goto :remoteZ
+:clean
+chcp 65001
+if %choix%== no Goto :menu
+if %choix%== yes Goto :menue
+defrag c:
+cleanmgr
+del /q/f/s %TEMP%\*
+echo scan ?
+SET /p choix="%%b[31m[%%b[33mWPARK%%b[31m]%%b[33m Yes or no  >  "
+
+
+:menue
+title scan
+sfc /SCANNOW
+goto menu
+
+:remoteZ
+cls
+chcp 65001
+title remoteZ
+echo goto select
+ping -n 2 127.0.0.1>nul
+goto ALL
+
+:ALL
+cls
+title select
+cls
+echo type
+echo select 
+echo remote Shell type z          newtabcmd  type x         mspaint type c   4goto menu type v
+chcp 65001
+if %choix%== z Goto :remoteShell
+if %choix%== x Goto :newtabcmd
+if %choix%== c Goto :mspaint
+if %choix%== v Goto :menu
+SET /p choix="%%b[31m[%%b[33mWPARK%%b[31m]%%b[33m select  >  "
+
+goto ALL
+:Shell
+cls
+title Shell
+start powershell
+goto menu
+
+:remotet
+cls
+title remote
+shutdown-i
+goto menu
+
+:newtabcmd
+start cmd
+goto menu
+
+
+:mspaint
+start mspaint
+goto menu
+
+
+
+:remoteShell
+chcp 65001
+cls
+if %choix%== o Goto :Shell
+if %choix%== m Goto :remotet
+echo start powershell or remote?
+echo 1remote 2powershell
+echo remote type o
+echo powershell type m
+SET /p choix="%%b[31m[%%b[33mWPARK%%b[31m]%%b[33m select  >  "
